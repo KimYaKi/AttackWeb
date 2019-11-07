@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    th{
+      color: white;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="color:tomato; text-decoration: underline;">회원가입</h1>
+
+  <form action="login_proc.php" method="post">
+    <table style="width:500px;" border="1">
+      <tr>
+        <th><label for="user_name">*이름</label></th>
+        <td><input type="text" id="user_name" name="name" autofocus /></td>
+      </tr>
+      <tr>
+        <th>*아이디</th>
+        <td><input type="text" name="id" /></td>
+      </tr>
+      <tr>
+        <th>*비밀번호</th>
+        <td><input type="password" name="pw" maxlength="16"> *비밀번호는 4~16글자</td>
+      </tr>
+      <tr>
+        <th>*비밀번호 확인</th>
+        <td><input type="password" name="pw_re" maxlength="16"> </td>
+      </tr>
+      <tr>
+        <th>*성별</th>
+        <td>
+          남 <input type="radio" name="gender" value="M" check/> |
+          여 <input type="radio" name="gender" value="W"/>
+        </td>
+      </tr>
+      <tr>
+        <th>*연락처</th>
+        <td>
+          <select name="tel1">
+            <option value>선택</option>
+            <option value="S">SKT</option>
+            <option value="K">KT</option>
+            <option value="L">LG U+</option>
+            <option value="A">알뜰폰</option>
+          </select>
+          010 -
+          <input type="text" name="tel2" size="6" maxlength="4"> -
+          <input type="text" name="tel3" size="6" maxlength="4">
+        </td>
+      </tr>
+      <tr>
+        <th>*이메일</th>
+        <td><input type="email" name="email"></td>
+      </tr>
+      <tr>
+        <th>마케팅 수신 동의</th>
+        <td>
+          SMS <input type="checkbox" name="agree" value="sms"/>
+          Email <input type="checkbox" name="agree" value="email"/>
+          App <input type="checkbox" name="agree" value="app"/>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <input type="submit" value="회원가입" />
+    <input type="reset" value="초기화" />
+  </form>
+</body>
+
+</html>
