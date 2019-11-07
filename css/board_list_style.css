@@ -13,7 +13,7 @@ th#num{
   width:7%;
 }
 th#title{
-  width:45%;
+  width:35%;
 }
 th#user{
   width:25%;
@@ -23,6 +23,9 @@ th#time{
 }
 th#view{
   width:8%;
+}
+th#goView{
+  width:10%;
 }
 
 h1#board_title{
