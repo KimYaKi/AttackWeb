@@ -13,35 +13,82 @@
 <body>
   <br>
   <div class="container">
-          <h1 class="h3 mb-3 font-weight-normal">Board Write</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Board Write</h1>
     <form action="" method="post">
       <table class="table table-bordered">
-        <caption></caption>
-        <thead>
-          <tr>
-            <th scope="col">이름</th>
-            <th scope="col"><input type="text" name="userName"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">비밀번호</th>
-            <td>Mark</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td ><div class="form-group">
-              <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div></td>
-          </tr>
-        </tbody>
+        <caption style="text-align:center;">
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="reset" class="btn btn-danger">Reset</button>
+          <a href="board_list.html" target="myiframe" class="btn btn-info">List</a>
+        </caption>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2" name="userName">
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">비밀번호</th>
+          <th scope="col">
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2" name="userPassword">
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">이메일</th>
+          <th scope="col">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="E-mail" aria-label="Recipient's username" aria-describedby="basic-addon2" name="userEmail">
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Title" aria-label="Recipient's username" aria-describedby="basic-addon2" name="subTitle">
+            </div>
+          </th>
+        </tr>
 
+        <tr>
+          <th scope="col">HTML 적용</th>
+          <th scope="col">
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-default">
+                <input type="radio" name="useHtml" value="true">적용
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="useHtml" value="false">미적용
+              </label>
+            </div>
+          </th>
+        </tr>
+
+        <tr>
+          <th scope="col">내용</th>
+          <th scope="col">
+            <div class="form-group">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </th>
+        </tr>
+
+        <tr>
+          <th scope="row">파일 첨부</th>
+          <td>
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
+          </td>
+        </tr>
       </table>
-
     </form>
   </div>
 </body>

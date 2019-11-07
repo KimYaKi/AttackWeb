@@ -44,8 +44,9 @@ iframe.header{
   width:100%;
   height:100px;
 }
+
 iframe.body{
   border: 0;
   width:100%;
-  height:700px;
+  height:750px;
 }
