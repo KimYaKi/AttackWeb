@@ -5,7 +5,11 @@ div {
   background-color: black;
   height: 50px;
 }
-
+div.menu_bar{
+  vertical-align: middle;
+  text-align: center;
+  height:55px;
+}
 div.menu {
   text-align: center;
 }
@@ -17,8 +21,10 @@ a:hover { color: white }
 a:active { color: white }
 a:focus { color: white }
 
-label {
+div.menu_content {
+  height:25px;
   color: white;
+  padding: 15px;
 }
 
 iframe.header{
@@ -27,8 +33,19 @@ iframe.header{
   height:100px;
 }
 
+iframe.left_frame{
+  width:12%;
+  border:0;
+  height:750px;
+  float:left;
+  margin:0;
+  padding: 0;
+}
 iframe.body{
   border: 0;
-  width:100%;
+  width:74%;
   height:750px;
+  float:left;
+  margin:0;
+  padding: 0;
 }
