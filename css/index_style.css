@@ -6,34 +6,16 @@ div {
   height: 50px;
 }
 
-
 div.menu {
   text-align: center;
 }
 
-a {
-  text-decoration: none
-}
-
-a:link {
-  color: white
-}
-
-a:visited {
-  color: white
-}
-
-a:hover {
-  color: white
-}
-
-a:active {
-  color: white
-}
-
-a:focus {
-  color: white
-}
+a { text-decoration: none }
+a:link { color: white }
+a:visited { color: white }
+a:hover { color: white }
+a:active { color: white }
+a:focus { color: white }
 
 label {
   color: white;

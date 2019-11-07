@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/join_style.css">
   <script src="../js/bootstrap.min.js"></script>
   <title>Document</title>
 </head>
@@ -13,37 +14,37 @@
 <body>
   <br />
   <div class="container">
-    <form>
+    <form action="" metho="post" class="joinForm">
       <h1 class="h3 mb-3 font-weight-normal">Join Us</h1>
       <div class="form-group">
         <label for="formGroupExampleInput">ID</label>
-        <input type="text" class="form-control" id="id" placeholder="Input ID">
+        <input type="text" class="form-control" name="id" placeholder="Input ID">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Input Name">
+        <input type="text" class="form-control" name="name" placeholder="Input Name">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput3">Password</label>
-        <input type="password" class="form-control" id="pw" placeholder="Input Password">
+        <input type="password" class="form-control" name="pw" placeholder="Input Password">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput4">Password Check</label>
-        <input type="password" class="form-control" id="pw_re" placeholder="Input Password Check">
+        <input type="password" class="form-control" name="pw_re" placeholder="Input Password Check">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput5">Age</label>
-        <input type="number" class="form-control" id="age" placeholder="Input Age">
+        <input type="number" class="form-control" name="age" placeholder="Input Age">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput6">NickName</label>
-        <input type="text" class="form-control" id="nick" placeholder="Input NickName">
+        <input type="text" class="form-control" name="nick" placeholder="Input NickName">
       </div>
-      <table>
-        <th>
-          <td><button type="submit" class="btn btn-primary">Submit</button></td>
-          <td><button type="reset" class="btn btn-primary">Reset</button></td>
-        </th>
+      <table class="table table-borderless">
+        <tr>
+          <td class="right_btn"><button type="submit" class="btn btn-primary btn-lg">Submit</button></td>
+          <td class="left_btn"><button type="reset" class="btn btn-danger btn-lg">Reset</button></td>
+        </tr>
       </table>
     </form>
   </div>

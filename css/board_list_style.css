@@ -5,8 +5,9 @@ div.write_btn{
 table{
   text-align: center;
 }
-td{
-  vertical-align:top;
+td, th{
+  vertical-align:middle;
+  vertical-align:center;
 }
 th#num{
   width:7%;

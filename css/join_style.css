@@ -1,0 +1,10 @@
+form.joinForm{
+  margin-left: 10%;
+  width:80%;
+}
+td.right_btn{
+  text-align: right;
+}
+td.left_btn{
+  text-align: left;
+}
