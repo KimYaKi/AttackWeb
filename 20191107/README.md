@@ -141,11 +141,27 @@
   a:active {color: green}
   a:focus {color: gray}
   ~~~
-
+***
 ## 선택자 우선순위
-
+- 스타일 속성 > 아이디 선택자 > 클래스 선택자 > 태그 선택자 순서
+- !important 사용시 어떤 선택자 보다도 우선순위가 높아짐
+***
 ## 박스 모델
-
+- 글자간의 간격이나 태두리간의 간격을 조절할 때 하용하는 모델
+  - padding : 글자와 테두리간의 간격
+  - height : 컨텐츠의 높이
+  - weight : 컨텐츠의 길이
+  - margin : Box와 Box간의 간격
+***
 ## 플로트(float)
-
+- float 속성으로 위치를 독립적으로 설정
+- 글자들 내에 이미지 혹은 Box가 있는 경우에 독립된 위치로 사용
+***
 ## HTML과 CSS 분리
+- HTML파일은 정보만 작성
+- CSS파일은 디자인만 작성
+~~~HTML
+<head>
+  <link rel="stylesheet" href="/css/master.css" type="text/css">
+</head>
+~~~
