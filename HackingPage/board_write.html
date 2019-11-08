@@ -14,7 +14,7 @@
   <br>
   <div class="container">
     <h1 class="h3 mb-3 font-weight-normal">Board Write</h1>
-    <form action="" method="post">
+    <form action="php/boardData.php" method="post">
       <table class="table table-bordered">
         <caption style="text-align:center;">
           <button type="submit" class="btn btn-success">Submit</button>
@@ -72,7 +72,7 @@
           <th scope="col">내용</th>
           <th scope="col">
             <div class="form-group">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
             </div>
           </th>
         </tr>
@@ -82,7 +82,7 @@
           <td>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="inputFile">
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
               </div>
             </div>
