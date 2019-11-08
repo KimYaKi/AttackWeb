@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Javascript로 해성되는 부분 -->
+  <script>
+    var str = "Hello, Javascript";
+    document.write("<p>" + str + "</p>");
+    var str = "Alert Test";
+    // alert(str);
+
+    // 배열
+    var record = new Array(1, "학생1", 25, "대학생");
+    document.write("<p>이름 : " + record[1] +"</p>");
+
+    // 조건
+    var password = prompt("패스워드를 입력하세요");
+    if(password.length < 8 || passwlrd.length > 16)
+      alert("패스워드는 8 ~ 16으로 구성해야 합니다.");
+
+    if( password == "kimyaki9509"){
+      alert("Successed!");
+    }else{
+      alert("Failed")
+    }
+  </script>
+
+  <!-- PHP로 해성되는 부분 -->
+  <?php
+    $record = array(2, "학생2", 20, "취준생");
+    echo "이름 : ".$record[1].", 나이 : ".$record[2];
+    echo "<br>";
+    $record2 = array("no" => 3, "name" => "학생3", "age" => 22, "job" => "개발자");
+    echo "이름 : {$record2['name']}, 직업 : {$record2['job']}";
+  ?>
+</body>
+
+</html>
