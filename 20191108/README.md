@@ -136,6 +136,29 @@
   // 연관배열
   $record2 = array("no" => 3, "name" => "학생3", "age" => 22, "job" => "개발자");
   echo "이름 : {$record2['name']}, 직업 : {$record2['job']}";
+
+  // 조건 : 입력값 검증
+  $id = $_POST['id'];
+  $pw = $_POST['pw'];
+  // 패스워드 길이 검증
+  if(strlen($pw) < 8 || strlen($pw)> 16){
+    echo "<script>
+            alert('패스워드는 8 ~ 16으로 구성해야 합니다.');
+            history.back();
+          </script>";
+          exit;
+  }
+  if($id == "test" && $pw == '123456789'){
+    echo "<script>
+            alert('Successed');
+            location.replace('Basic.html');
+          </script>";
+  }else{
+    echo "<script>
+            alert('Failed');
+            location.replace('Login.html');
+          </script>";
+  }
   ~~~
 ***
 ## 디버깅

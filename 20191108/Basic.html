@@ -22,10 +22,11 @@
 
     // 조건
     var password = prompt("패스워드를 입력하세요");
-    if(password.length < 8 || passwlrd.length > 16)
+    if(password.length < 8 || password.length > 16){
       alert("패스워드는 8 ~ 16으로 구성해야 합니다.");
+    }
 
-    if( password == "kimyaki9509"){
+    if( password == "123456789"){
       alert("Successed!");
     }else{
       alert("Failed")
