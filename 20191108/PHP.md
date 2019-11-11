@@ -88,9 +88,10 @@
     $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
     ~~~
   - SQL 쿼리 전송
-    ~~~bash
-    # Linux Database Monitor
-    CREATE, DROP, TRUNCATE, ALERT, INSERT, DELETE, UPDATE, SELECT ...
+    ~~~SQL
+    # SQL
+    CREATE TABLE test (no INT AUTO_INCREMENT PRIMARY KEY);
+    INSERT INTO test VALUES ('');
     ~~~
     ~~~php
     $sql_create_query = "CREATE TABLE test (no INT AUTO_INCREMENT PRIMARY KEY)";
@@ -102,8 +103,39 @@
     }
     ~~~
   - SQL 쿼리에 의한 레코드 출력(개수)
+    ~~~SQL
+    SELECT count(*) FROM member;
+    ~~~
+    ~~~php
+    mysql_num_rows();
+    mysqli_num_rows();
+    ~~~
   - SQL 쿼리에 의한 레코드 출력(레코드)
+    ~~~SQL
+    SELECT id FROM member;
+    ~~~
+    ~~~php
+    mysql_fetch_row();      // 배열 접근
+    mysql_fetch_assoc();    // 연관 배열 접근
+    mysql_fetch_array();    // 배열 + 연관 배열 접근
+    mysql_free_result();    // 리소스 해제 -> 생략 가능
+
+    mysqli_fetch_row();
+    mysqli_fetch_assoc();
+    mysqli_fetch_array();
+    mysqli_free_result();
+
+    ~~~
   - 전체 레코드 출력
+    ~~~php
+    $mem_count = mysqli_num_rows($result);
+    echo "<p>회원 수 : ${mem_count}</p><br />";
+
+    while($row = mysqli_fetch_assoc($result)){
+      echo "아이디 : ${row['id']}<br />";
+      echo "닉네임 : ${row['nickname']}<br />";
+    }
+    ~~~
 ***
 ## PHP 옵션
 ## Cookie VS Session

@@ -1,3 +1,13 @@
+<?php
+  $no = $_GET['no'];
+  $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
+  if(!$link) die('데이터베이스 접근 실패');
+  $sql_query = "SELECT * FROM board WHERE board_no = ${no}";
+
+  $result = mysqli_query($link, $sql_query);
+  if(!$result) die('SQL 쿼리 전송 실패');
+  $row = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,31 +26,40 @@
       <thead>
         <tr>
           <th scope="col">이름</th>
-          <th scope="col">왜요</th>
+          <th scope="col"><?php echo $row['board_writer']; ?></th>
           <th scope="col">등록일</th>
-          <th scope="col">2019-11-07</th>
+          <th scope="col"><?php echo $row['write_date']; ?></th>
         </tr>
         <tr>
           <th scope="col">E-mail</th>
-          <th scope="col">abcd@gmail.com</th>
+          <th scope="col"><?php echo $row['board_email']; ?></th>
           <th scope="col">조회</th>
-          <th scope="col">17</th>
+          <th scope="col"><?php echo $row['view_count']; ?></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">제목</th>
-          <td colspan="3">에베베베베베베베베</td>
+          <td colspan="3"><?php echo $row['board_subject']; ?></td>
         </tr>
         <tr>
           <th scope="row">내용</th>
-          <td colspan="3">하나둘셋넷다섯여섯일곱여덟아홉열</td>
+          <td colspan="3"><?php echo $row['board_contents']; ?></td>
         </tr>
         <tr>
           <th scope="row">첨부파일</th>
-          <td colspan="3">받지마세요. 없어요.</td>
+          <td><?php echo $row['file_name']; ?></td>
+          <th scope="row">용량</th>
+          <td><?php echo $row['file_size']; ?> MB</td>
         </tr>
       </tbody>
+      <tfoot>
+          <tr>
+            <td colspan="4">
+              <button onClick='history.back();' class="btn btn-danger btn-lg">뒤로가기</button>
+            </td>
+          </tr>
+      </tfoot>
     </table>
   </div>
 </body>

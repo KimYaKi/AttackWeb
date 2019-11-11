@@ -1,3 +1,11 @@
+<?php
+  $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
+  if(!$link) die('데이터베이스 접근 실패');
+  $sql_query = "SELECT * FROM board";
+
+  $result = mysqli_query($link, $sql_query);
+  if(!$result) die('SQL 쿼리 전송 실패');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,19 +36,28 @@
           <th id="title" scope="col">제목</th>
           <th id="user" scope="col">작성자</th>
           <th id="time" scope="col">등록일</th>
-          <th id="view" scope="col">조회</th>
+          <th id="view" scope="col">조회수</th>
           <th id="goView" scope="col">보기</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>제목입니다.</td>
-          <td>작성자</td>
-          <td>2019.11.07</td>
-          <td>17</td>
-          <td><a href="board_view.html" target="myiframe">보기</a></td>
-        </tr>
+        <?php
+          $board_count = mysqli_num_rows($result);
+          if($board_count < 1){
+            echo "<tr class='table-primary'><td colspan = '6'>등록된 글이 없습니다.</td></tr>";
+          }else{
+            while($row = mysqli_fetch_assoc($result)){
+              echo "<tr>";
+              echo "<th scope='row'>${row['board_no']}</th>";
+              echo "<th>${row['board_subject']}</th>";
+              echo "<th>${row['board_writer']}</th>";
+              echo "<th>${row['write_date']}</th>";
+              echo "<th>${row['view_count']}</th>";
+              echo "<th><a href='board_view.html?no=${row['board_no']}' target='myiframe'>보기</a></th>";
+              echo "</tr>";
+            }
+          }
+        ?>
       </tbody>
       <tfoot>
         <tr>
