@@ -1,6 +1,18 @@
 # PHP
 ***
-## 반복문
+## 기본 사용 문법
+- GET, POST 방식으로 전달된 인자 처리
+- 전달된 인자를 기반으로 동적 페이지 제공
+  - $\_GET : GET 방식으로 전달된 인자에 접근하기 위한 변수
+  - $\_POST : POST 방식으로 전달된 인자에 접근하기 위한 변수
+  - $\_COOKIE : COOKIE 방식으로 전달된 인자에 접근하기 위한 변수
+  - $\_REQUEST
+    - GPC(GET, POST, COOKIE) 방식으로 전달된 인자에 접근하기 위한 변수
+    - 보안에 좋지 않음
+  - $\_SERVER : HTTP 프로토콜 정보 등에 접근하기 위한 변수
+    - 클라이언트의 정보등을 알기 위해 사용
+    - IP, Agent, Browser등의 정보
+#### 반복문
   ~~~php
   $record = array(1, "사람1", 26, "Good", "학생");
 
@@ -16,10 +28,84 @@
     $cnt++;
   }
   ~~~
-## PHP short_open_tag
 ## PHP 라이브러리 사용
+- PHP 메뉴얼
+  - php.net
+- php-mysql
+  - PHP에서 mysql DBMS에 접근하기 위한 라이브러리 제공
+***
 ## Server Side Validation Check
+- 입력 값에 대한 검증을 서버에서 수행하는 형태
+- 클라이언트에서 HTML이나 Javascript 등으로 입력 값 검증 시 우회 가능성이 존재
+- 서버 상에서도 데이터 검증에 대한 코드가 있어야 함
+  - Secure Coding
+  - HTML이나 Javascript를 우회 할 가능성을 방지할 수 있음
+    - 그래도 할 수 있는 방법은 있음
+***
 ## PHP를 이용한 DBMS 연동
+- MySQL Monitor VS php-mysql Library
+  - Database 접속
+    ~~~bash
+    # Linux Database Monitor 접속
+    mysql -h192.168.95.50 -uroot -p9509
+    ~~~
+    ~~~php
+    // PHP 기본 MySql 접속 함수
+    $link = mysql_connect('192.168.95.50', 'root', '9509');
+    if(!$link){
+      die('Clould not connect: '.mysql_error());
+    }
+    echo 'Connected Successfully';
+    mysql_close($link);
+
+    // 위의 함수 상위 호환
+    $link = mysqli_connect('192.168.95.50', 'root', '9509');
+    if(!$link){
+      die('Clould not connect: '.mysqli_error());
+    }
+    echo 'Connected Successfully';
+    mysqli_close($link);
+    ~~~
+  - Database 사용
+    ~~~bash
+    # Linux Database Monitor DB 선택
+    USE webhacktest;
+    ~~~
+    ~~~php
+    # mysqli 함수 사용
+    $db_selected = mysqli_select_db($link, 'webhacktest');
+    if(!$db_selected){
+      die ('Can\'t use webhacktest : '.mysqli_error($link));
+    }
+    echo 'DB Select Successfully';
+    ~~~
+  - Database 접속 및 선택
+    ~~~bash
+    # Linux Database Monitor DB 접속 및 선택
+    mysql -h192.168.95.50 -uroot -p9509 webhacktest
+    ~~~
+    ~~~php
+    $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
+    ~~~
+  - SQL 쿼리 전송
+    ~~~bash
+    # Linux Database Monitor
+    CREATE, DROP, TRUNCATE, ALERT, INSERT, DELETE, UPDATE, SELECT ...
+    ~~~
+    ~~~php
+    $sql_create_query = "CREATE TABLE test (no INT AUTO_INCREMENT PRIMARY KEY)";
+    $sql_insert_query = "INSERT INTO test VALUES (NULL)";
+
+    $result = mysqli_query($link, $sql_insert_query);
+    if(!$result){
+      die('Invalid query: '.mysqli_error($link));
+    }
+    ~~~
+  - SQL 쿼리에 의한 레코드 출력(개수)
+  - SQL 쿼리에 의한 레코드 출력(레코드)
+  - 전체 레코드 출력
+***
+## PHP 옵션
 ## Cookie VS Session
 ## PHP 헤더를 이용한 페이지
 ## PHP 외부 파일 참조

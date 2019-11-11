@@ -1,42 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/join_style.css">
   <script src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    function joinFormChk(){
-      var id = document.joinForm.id.value;
-      var pw = document.joinForm.pw.value;
-      var pw_re = document.joinForm.pw_re.value;
-
-      if(id.length < 4 || id.length > 12){
-        alert("아이디가 잘못 되었습니다.");
-        return false;
-      }
-      if(pw.length < 6 || pw.length > 20){
-        alert("패스워드 길이가 잘못 되었습니다.");
-        return false;
-      }
-      if(pw != pw_re ){
-        alert("패스워드가 동일하지 않습니다.");
-        return false;
-      }
-      document.joinForm.submit();
-    }
-  </script>
+  <script type="text/javascript" src="js/check.js"></script>
   <title>Document</title>
 </head>
 
 <body>
-  <br />
   <div class="container">
     <form action="php/joinData.php" method="post" class="joinForm" name="joinForm">
-      <h1 class="h3 mb-3 font-weight-normal">Join Us</h1>
+      <h1 class="h3 font-weight-normal">Join Us</h1>
       <div class="form-group">
         <label for="formGroupExampleInput">ID</label>
         <input type="text" class="form-control" name="id" placeholder="Input ID"maxlength="12">
