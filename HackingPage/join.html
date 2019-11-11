@@ -9,19 +9,24 @@
   <link rel="stylesheet" href="../css/join_style.css">
   <script src="../js/bootstrap.min.js"></script>
   <script type="text/javascript">
-    function checkFilled(obj) {
-      var txt = document.getElementById("id_chk");
-      txt.innerHTML = "";
-      if (obj.value == "") {
-        //id값이 비어있는 경우
-        txt.innerHTML = "*Pleas Input ID";
-        //값을 입력해 달라는 문구 출력
-        obj.focus();
-        //포거스를 다시 잡아준다.
-      } else {
-        txt.innerHTML = "";
-        //비어있지 않는 경우 공백으로 표시
+    function joinFormChk(){
+      var id = document.joinForm.id.value;
+      var pw = document.joinForm.pw.value;
+      var pw_re = document.joinForm.pw_re.value;
+
+      if(id.length < 4 || id.length > 12){
+        alert("아이디가 잘못 되었습니다.");
+        return false;
       }
+      if(pw.length < 6 || pw.length > 20){
+        alert("패스워드 길이가 잘못 되었습니다.");
+        return false;
+      }
+      if(pw != pw_re ){
+        alert("패스워드가 동일하지 않습니다.");
+        return false;
+      }
+      document.joinForm.submit();
     }
   </script>
   <title>Document</title>
@@ -30,12 +35,12 @@
 <body>
   <br />
   <div class="container">
-    <form action="php/joinData.php" method="post" class="joinForm">
+    <form action="php/joinData.php" method="post" class="joinForm" name="joinForm">
       <h1 class="h3 mb-3 font-weight-normal">Join Us</h1>
       <div class="form-group">
         <label for="formGroupExampleInput">ID</label>
-        <input type="text" class="form-control" name="id" placeholder="Input ID" onblur="checkFilled(this)">
-        <span id="id_chk" style="color: red; font-size: 10px">*Pleas Input ID</span>
+        <input type="text" class="form-control" name="id" placeholder="Input ID"maxlength="12">
+        <span style="color:red;">ID : 4 ~ 12</span>
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Name</label>
@@ -43,8 +48,8 @@
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput3">Password</label>
-        <input type="password" class="form-control" name="pw" placeholder="Input Password">
-        <span id="pw_chk" style="color: red; font-size: 10px">*Password Length : 4 ~ 20</span>
+        <input type="password" class="form-control" name="pw" placeholder="Input Password" maxlength="20">
+        <span style="color:red;">Password : 6 ~ 20</span>
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput4">Password Check</label>
@@ -64,7 +69,7 @@
       </div>
       <table class="table table-borderless">
         <tr>
-          <td class="right_btn"><button type="submit" class="btn btn-primary btn-lg">Submit</button></td>
+          <td class="right_btn"><button type="button" class="btn btn-primary btn-lg" onClick="joinFormChk()">Submit</button></td>
           <td class="left_btn"><button type="reset" class="btn btn-danger btn-lg">Reset</button></td>
         </tr>
       </table>

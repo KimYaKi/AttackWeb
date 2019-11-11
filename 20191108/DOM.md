@@ -24,7 +24,16 @@
 
 ## HTML DOM 사용
 - 개발자도구(F12)에서 Console 탭으로 이동해서 사용할 수 있음
-1. HTML Element 찾기
+- HTML Element 찾기, 추가, 삭제
+  > 찾기
+    ~~~Javascript
+    ~~~
+  > 추가
+    ~~~Javascript
+    ~~~
+  > 삭제
+    ~~~Javascript
+    ~~~
     ~~~javascript
     /*
     input이라고 되어있는 태그를 식별 getElementByTagName("input")
@@ -33,7 +42,27 @@
     */
     document.getElementByTagName("input")[1].value
     ~~~
-2. HTML Element 추가
-3. HTML Element 삭제
-4. Event Handler 추가
-5. HTML 객체 찾기
+- Event Handler 추가
+- HTML 객체 찾기
+
+## 데이터 검증
+- 사용자가 입력한 값을 검증하기 위한 코드
+  - 잘못된 범위의 값을 입력했는지 검증
+  - 입력 값 필터링을 위해 사용
+    - 공격 코드 사용 여부 판단
+  - 마우스 우클릭 제한, 키보드 입력 제한, ...
+
+## Client Side Validation Check
+- 입력 값에 대한 검증을 브라우저에서 수행
+  - Input 태그의 속성 값을 사용
+    - 입력 제한의 한정적인 부분이 많음
+    ~~~HTML
+    <input type="text" name="id" maxlength="10"/>
+    -> 최대 글자 10글자로 입력 값 제한
+    -> 10글자 이상의 값을 입력할 수 있는가?
+    ~~~
+- ByPass Client Side Validation Check
+  - 클라이언트 측의 검증 코드 우회
+  - 제한된 입력 값을 검증하는 코드를 처리하지 않게 하는 것
+  - 서버에 직접적으로 값을 구성해서 요청하는 경우
+  - 검증 코드를 우회할 수 있다 -> 해킹의 기반이 됨
