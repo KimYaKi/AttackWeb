@@ -1,6 +1,6 @@
 # PHP
 ***
-## 기본 사용 문법
+### 기본 사용 문법
 - GET, POST 방식으로 전달된 인자 처리
 - 전달된 인자를 기반으로 동적 페이지 제공
   - $\_GET : GET 방식으로 전달된 인자에 접근하기 위한 변수
@@ -28,13 +28,13 @@
     $cnt++;
   }
   ~~~
-## PHP 라이브러리 사용
+### PHP 라이브러리 사용
 - PHP 메뉴얼
   - php.net
 - php-mysql
   - PHP에서 mysql DBMS에 접근하기 위한 라이브러리 제공
 ***
-## Server Side Validation Check
+### Server Side Validation Check
 - 입력 값에 대한 검증을 서버에서 수행하는 형태
 - 클라이언트에서 HTML이나 Javascript 등으로 입력 값 검증 시 우회 가능성이 존재
 - 서버 상에서도 데이터 검증에 대한 코드가 있어야 함
@@ -42,7 +42,7 @@
   - HTML이나 Javascript를 우회 할 가능성을 방지할 수 있음
     - 그래도 할 수 있는 방법은 있음
 ***
-## PHP를 이용한 DBMS 연동
+### PHP를 이용한 DBMS 연동
 - MySQL Monitor VS php-mysql Library
   - Database 접속
     ~~~bash
@@ -137,8 +137,51 @@
     }
     ~~~
 ***
-## PHP 옵션
-## Cookie VS Session
-## PHP 헤더를 이용한 페이지
-## PHP 외부 파일 참조
-## PHP 분리
+### HTTP Cookie VS Session
+- Persistent Cookie(Cookie) vs Session Cookie(Session)
+- WAS(Web Application Server)가 클라이언트 식별에 사용되는 정보
+  - HTTP는 Stateless
+  - 연결을 계속 맺은 상태가 아니어서 사용자의 상태를 실별할 수 없음
+  - 로그인 정보, 광고, 등등...
+- Persistent Cookie (사용자 브라우저 HDD)
+  - 클라이언트 브라우저의 HDD에 저장 (반영구적)
+  - 만료 : 서버는 만료 일자를 해주지만 클라이언트가 임의로 수정을 할 수 있음
+  - 서버가 응답 페이지(해더)를 통해 발급 : Set-Cookie: [변수]=[값]; ...
+    - 개인 컨텐츠 정보 등등...
+    > 1. 서버에서 요청한 클라이언트에 대한 응답으로 쿠키를 발급
+    > 2. 클라이언트의 브라우저에서 발급받은 Cookie를 저장
+    >     - 사용자를 식별하는 번호표
+    > 3. 로그인 페이지를 요청 할 때, 브라우저가 발급받은 Cookie를 함께 요청
+
+- Session Cookie (사용자 브라우저, 서버 메모리)
+  - 브라우저 메모리에 저장 됨 (일시적), 서버 메모리에도 저장(관리)
+  - 만료 : 세션을 유지하는 동안만 사용, 서버가 관리
+  - 서버가 응답 페이지(해더)를 통해 발급 : Set-Cookie: [변수]=[값]; ...
+    - Session Token : Session을 식별하기위해 사용
+    - PHP : PHPSESSID
+    - JSP : JSESSIONID(?)
+  - Session Token은 Cookie를 통해 전달
+    > 1. 서버가 Cookie를 발급할 때 해당 클라이언트에 대한 Cookie를 요청 클라이언트 별로 발급
+    > 2. 사용자의 브라우저가 Cookie를 함께 요청 한 경우 서버에서는 해당 Cookie에 대한 메모리를 확보하여 상태를 저장
+***
+### Session Cookie 관리
+  ~~~php
+  session_start();
+  session_destroy();
+  ~~~
+### Persistent Cookie, Session Cookie의 보안상 차이
+### PHP 설정
+  ~~~vim
+  # 설정 파일
+  # vim /etc/php.ini
+  short_open_tag = On #Off -> On
+  ~~~
+  ~~~html
+  # 전
+    <?php ... ?>
+  # 후
+    <? ... ?>
+  ~~~
+### PHP 헤더를 이용한 페이지
+### PHP 외부 파일 참조
+### PHP 분리

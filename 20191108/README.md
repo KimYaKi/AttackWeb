@@ -14,7 +14,7 @@
   programing.php?content=html
   ~~~
 ***
-## Javascript
+### Javascript
 - 클라이언트 측에서 실행되는 스크립트 언어
 - 동적인 언어
 - 목적
@@ -32,7 +32,7 @@
     location.replace("http://malware.com")
     ```
 ***
-## PHP
+### PHP
 - 서버 측에서 실행되는 스크립트 언어
 - 미들웨어(Middleware)
 - 서버 측에서 서버 측의 기능 구현 및 데이터베이스 연동과 HTML 제어를 목적으로 사용
@@ -45,7 +45,7 @@
 - 기타
   - 악성코드(서버 측에서 실행되는 악성코드)
     - 웹셸 - 웹에서 사용되는 백도어
-## PHP 설치 및 설정
+### PHP 설치 및 설정
   ```
   # 설치
     yum -y install php php-mysql
@@ -56,7 +56,7 @@
     Addtype application/x-httpd-php .html
   ```
 ***
-## Javascript와 PHP의 기본 사용
+### Javascript와 PHP의 기본 사용
 - 공통
   - 단일 행 주석 : \/\/
   - 다중 행 주석 : \/* \*/
@@ -161,7 +161,7 @@
   }
   ~~~
 ***
-## 디버깅
+### 디버깅
 - Javascript : 브라우저의 개발자 도구에서 확인 가능
   - Console Tab에 에러문구로 확인
 - PHP : Code가 실행되지 않으면 서버에서 중단

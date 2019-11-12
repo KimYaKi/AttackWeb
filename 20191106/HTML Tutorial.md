@@ -1,22 +1,22 @@
 # HTML 문법 &lt;20191106&gt;
 ***
-## 기본 문법
+### 기본 문법
 * HTML은 대/소문자를 구분하지 않음
 * Space, TAB, Enter -> 문법 사이의 구분자
 ***
-## 태그(Tag)와 속성(Attribute)
+### 태그(Tag)와 속성(Attribute)
 * 열린 태그부터 닫힌 태그까지 정보를 묶어주는 역할
 * 태그(Tag) => 엘리먼트(Element)
 * 태그는 부모/자식 관계
 ***
-## HTML 인코딩 (HTML Encoding)
+### HTML 인코딩 (HTML Encoding)
 * <,
 * DTD(Document Type Definition)
   * HTML 문서의 종류(버전)를 기술
     * HTML4, XHTML(XML + HTML), HTML5 ...
   * &lt;!DOCTYPE html&gt; : HTML5
 ***
-## HTML 태그
+### HTML 태그
 #### 골격 태그 순서
  - &lt;html&gt; : HTML 문서의 시작
    - &lt;head&gt; : HTML 문서 설명
@@ -65,7 +65,7 @@
  - &lt;video&gt; : 비디오 재생 태그
  - &lt;form&gt; : 중요하므로 아래에 정리
 ***
-## &lt;form&gt; 태그
+### &lt;form&gt; 태그
 #### 개요
 - 양식을 제출할 때 사용
 - 회원가입, 로그인, 회원정보 수정, 회원탈퇴 등등...

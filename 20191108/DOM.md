@@ -1,7 +1,7 @@
 # DOM (Document Object Model)
 - HTML을 브라우저에서 제어하기 위한 기능
 
-## HTML DOM
+### HTML DOM
 - 웹 페이지가 로드될 때 브라우저가 DOM을 생성
 - 브라우저가 받은 HTML을 트리 구조로 나열
 - 태그 : Element
@@ -22,7 +22,7 @@
   - 이벤트 추가
   - HTML 요소 추가/삭제
 
-## HTML DOM 사용
+### HTML DOM 사용
 - 개발자도구(F12)에서 Console 탭으로 이동해서 사용할 수 있음
 - HTML Element 찾기, 추가, 삭제
   > 찾기
@@ -45,7 +45,7 @@
 - Event Handler 추가
 - HTML 객체 찾기
 
-## 데이터 검증
+### 데이터 검증
 - 사용자가 입력한 값을 검증하기 위한 코드
   - 잘못된 범위의 값을 입력했는지 검증
   - 입력 값 필터링을 위해 사용

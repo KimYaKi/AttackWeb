@@ -1,17 +1,17 @@
 # Javascript
 ***
-## HTML과 Javascript 분리
+### HTML과 Javascript 분리
 ~~~ HTML
 <script type="text/javascript" src="경로/파일.js"></script>
 ~~~
 ***
-## Javascript 페이지 히스토리/리다이렉트
+### Javascript 페이지 히스토리/리다이렉트
 ~~~HTML
 <script>location.replace("index.html")</script>
 <script>history.back()</script>
 <script>location.href("index.html")</script>
 ~~~
-## Client Side Validation Check
+### Client Side Validation Check
 - 입력 값에 대한 검증을 브라우저에서 수행
   - Input 태그의 속성 값을 사용
     - 입력 제한의 한정적인 부분이 많음
