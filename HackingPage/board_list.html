@@ -1,0 +1,84 @@
+<?php
+  $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
+  if(!$link) die('데이터베이스 접근 실패');
+  $sql_query = "SELECT * FROM board";
+
+  $result = mysqli_query($link, $sql_query);
+  if(!$result) die('SQL 쿼리 전송 실패');
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/board_list_style.css">
+  <script src="../js/bootstrap.min.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <br />
+  <div class="container">
+    <h1 class="h3 mb-3 font-weight-normal">Board</h1>
+    <table class="table table-hover">
+      <caption>
+        <div class="write_btn">
+          <a href="board_write.html" target="myiframe" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">글작성</a>
+        </div>
+      </caption>
+      <thead>
+        <tr class="table-primary">
+          <th id="num" scope="번호">#</th>
+          <th id="title" scope="col">제목</th>
+          <th id="user" scope="col">작성자</th>
+          <th id="time" scope="col">등록일</th>
+          <th id="view" scope="col">조회수</th>
+          <th id="goView" scope="col">보기</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $board_count = mysqli_num_rows($result);
+          if($board_count < 1){
+            echo "<tr class='table-primary'><td colspan = '6'>등록된 글이 없습니다.</td></tr>";
+          }else{
+            while($row = mysqli_fetch_assoc($result)){
+              echo "<tr>";
+              echo "<th scope='row'>${row['board_no']}</th>";
+              echo "<th>${row['board_subject']}</th>";
+              echo "<th>${row['board_writer']}</th>";
+              echo "<th>${row['write_date']}</th>";
+              echo "<th>${row['view_count']}</th>";
+              echo "<th><a href='board_view.html?no=${row['board_no']}' target='myiframe'>보기</a></th>";
+              echo "</tr>";
+            }
+          }
+        ?>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <form action="" method="get">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select class="form-control">
+                    <option value="title">제목</option>
+                    <option value="user">작성자</option>
+                  </select>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input class="btn btn-primary" type="submit" value="Submit">
+              </div>
+            </form>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
+
+</html>

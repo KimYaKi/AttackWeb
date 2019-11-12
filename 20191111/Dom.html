@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script>
+  function login_form_check(){
+    // 아이디에 root 또는 admin이 입력됬는지 검증
+    var id = document.mform.userID.value;
+    var pw = document.mform.userPassword.value;
+    if(id == ("admin") ){
+      alert("admin은 입력할 수 없습니다.");
+      return history.go(0);
+    }else if(id == ("root")){
+      alert("root는 입력할 수 없습니다");
+      return history.go(0);
+    }else{
+      alert("입력한 ID : " + id);
+
+      // 비밀번호가 6글자 이상 20글자 이하의 문자열로 구성되어있는지 검증
+      if(pw.length < 6 || pw.length > 20){
+        alert("비밀번호가 올바르지 않습니다.");
+        return history.go(0);
+      }
+    }
+    document.mform.submit();
+  }
+</script>
+<body>
+  <h1>로그인</h1>
+  <form action="login_proc.php" method="post" name="mform">
+    <input type="text" id="userID" name="nameUserID" placeholder="아이디" autofocus/><br>
+    <input type="password" id="userPassword" name="nameUserPw" placeholder="비밀번호"/><br>
+    <button type="button" onClick="login_form_check()">로그인</button>
+  </form>
+</body>
+</html>

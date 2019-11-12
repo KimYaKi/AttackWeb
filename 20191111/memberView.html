@@ -1,0 +1,50 @@
+<?php
+  $link = mysqli_connect('192.168.95.50', 'root', '9509', 'webhacktest');
+  if(!$link) die('데이터베이스 접근 실패');
+  $sql_query = "SELECT * FROM member";
+
+  $result = mysqli_query($link, $sql_query);
+  if(!$result) die('SQL 쿼리 전송 실패');
+
+
+  mysqli_close($link);
+?>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <?php
+    $mem_count = mysqli_num_rows($result);
+    echo "<p>회원 수 : ${mem_count}</p><br />";
+  ?>
+  <table width="300">
+    <thead>
+      <tr>
+        <th>아이디</th>
+        <th>닉네임</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        if($mem_count < 1){
+          echo "<tr><td colspan = '2'>회원 정보가 존재하지 않습니다.</td></tr>";
+        }
+        while($row = mysqli_fetch_assoc($result)){
+          echo "<tr>";
+          echo "<td>${row['id']}</td>";
+          echo "<td>${row['nickname']}</td>";
+          echo "</tr>";
+        }
+      ?>
+    </tbody>
+  </table>
+</body>
+
+</html>

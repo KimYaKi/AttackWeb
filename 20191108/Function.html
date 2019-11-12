@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function ck(){
+      alert("이벤트 발생");
+    }
+  </script>
+</head>
+<body>
+  <button type="button" onClick="ck();">버튼1</button>
+  <?php
+    function db_conn($ip, $id, $pw){
+      echo "${ip} 접속, ID: ${id}, PW: ${pw}";
+    }
+    db_conn("192.168.95.50", "root", "9509");
+  ?>
+</body>
+</html>

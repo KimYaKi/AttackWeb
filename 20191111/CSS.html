@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </script>
+  <title>Document</title>
+  <style>
+    body.white{
+      background-color: white;
+      color: black;
+    }
+    body.black{
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <script type="text/javascript">
+  function changeBackground(){
+    if(document.body.className == "black"){
+      document.body.className = "white";
+    }else{
+      document.body.className = "black";
+    }
+  }
+  </script>
+</head>
+<body>
+  <input type="button" onClick="changeBackground()" value="반전"/>
+</body>
+</html>

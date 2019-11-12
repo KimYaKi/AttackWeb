@@ -1,0 +1,35 @@
+div.write_btn{
+  text-align: center;
+}
+
+table{
+  text-align: center;
+}
+td, th{
+  vertical-align:middle;
+  vertical-align:center;
+}
+th#num{
+  width:7%;
+}
+th#title{
+  width:35%;
+}
+th#user{
+  width:15%;
+}
+th#time{
+  width:25%;
+}
+th#view{
+  width:8%;
+}
+th#goView{
+  width:10%;
+}
+
+h1#board_title{
+  text-align: center;
+  background-color: black;
+  color: white;
+}
