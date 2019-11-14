@@ -9,13 +9,17 @@
 		$age=$_POST["age"];
 		$nick=$_POST["nick"];
 		$email=$_POST["email"];
-		
+
+		if($id == "admin" || $id == "root" || $id == "master"){
+			die ("<script>alert('사용할 수 없는 계정입니다.')</script>");
+		}
+
 		if(!$nick) $nick=$name;
 		if(!$age) $age=0;
 
 		$strSQL = "select user_id from member where u_id = '".$id."';";
 		$rs = mysql_query($strSQL,$conn);
-		$rs_arr = mysql_fetch_array($rs);	
+		$rs_arr = mysql_fetch_array($rs);
 
 		if($rs_arr){
 			echo "<script>
@@ -23,14 +27,13 @@
 				history.back();
 			</script>";
 		}else{
-			$strSQL = "insert into member set u_id='$id', u_pass='$pw1', u_name='$name', nickname='$nick', age=$age, email='$email', reg_date=now()";			
-			mysql_query($strSQL,$conn);			
+			$strSQL = "insert into member set u_id='$id', u_pass='$pw1', u_name='$name', nickname='$nick', age=$age, email='$email', reg_date=now()";
+			mysql_query($strSQL,$conn);
 			echo "<script>
 				alert('회원 가입을 축하드립니다!!');
 				location.replace('../index.php');
-			</script>";			
+			</script>";
 		}
 		mysql_close($conn);
-		
+
 ?>
-	

@@ -1,7 +1,7 @@
 <?php
 		session_start();
 		require "../dbconn.php";
-	
+
 		$id=$_REQUEST["user_id"];
 		$pw=$_REQUEST["user_pw"];
 
@@ -15,12 +15,13 @@
 
 		$strSQL="select * from member where u_id='".$id."' and u_pass='".$pw."';";
 		$rs=mysql_query($strSQL,$conn);
-		$rs_arr=mysql_fetch_array($rs);		
+		$rs_arr=mysql_fetch_array($rs);
 		mysql_close($conn);
 
-		if($rs_arr){			
+		if($rs_arr){
 			$_SESSION[user_id]=$rs_arr[u_id];
 			$_SESSION[nickname]=$rs_arr[nickname];
+			$_SESSION[client_ip]=$_SERVER['REMOTE_ADDR'];
 			echo "<script>
 				alert('로그인 되었습니다.');
 				location.replace('../index.php');

@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!doctype html>
 <html>
 	<!-- head 부분 -->
-	<head> 
+	<head>
 		<!-- 상단 title -->
 		<title>Web Test Site</title>
 		<!-- CSS Style 지정 -->
@@ -13,9 +14,8 @@
 		<!-- 화면 하단 body 부분 -->
 		<div id="main_contents" class="contents">
 			<h1>
-			<?php 
-				session_start();
-				if($_SESSION[nickname])
+			<?php
+				if($_SESSION[nickname] && $_SESSION['client_ip'] == $_SERVER['REMOTE_ADDR'])
 					echo $_SESSION[nickname]."님 ";
 			?>환영합니다~!!^^</h1>
 			<font color="#323232" size="4em">
